@@ -192,6 +192,8 @@ namespace Plugin.InAppBilling
 		{
 			var p = await PurchaseAsync(productId);
 
+			p = p.OriginalTransaction ?? p;
+
 			var reference = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
 			var purchase = new InAppBillingPurchase
